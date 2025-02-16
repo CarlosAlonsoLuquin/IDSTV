@@ -16,5 +16,5 @@ public class ventana extends JFrame {
 		this.setResizable(true);
 		
 	}
-
+	
 }
