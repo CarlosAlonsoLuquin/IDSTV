@@ -3,11 +3,16 @@ package IDSTV;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.BorderFactory;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ventana extends JFrame {
@@ -15,15 +20,13 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(500,500);
-		
+		this.setSize(1000,500);
 		this.setLocationRelativeTo(null);
-		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		this.setResizable(true);
 		
 		this.add(this.login());
+		this.add(this.register());
 		this.repaint();
 	}
 	//trabajo 9 apartir de aqui
@@ -40,8 +43,6 @@ public class ventana extends JFrame {
 			
 			JLabel etiqueta1= new JLabel("Welcome");
 			etiqueta1.setSize(100,50);
-			//etiqueta1.setOpaque(true);
-			//etiqueta1.setBackground(Color.LIGHT_GRAY);
 			etiqueta1.setLocation(200,10);
 			etiqueta1.setHorizontalAlignment(JLabel.CENTER);
 			etiqueta1.setFont(new Font("Cambria",Font.BOLD,18));
@@ -108,10 +109,121 @@ public class ventana extends JFrame {
 			etiqueta5.setLocation(150,200);
 			panel.add(etiqueta5);
 			
+			return panel;
+		}
+		public JPanel register() {
+			
+			JPanel panel = new JPanel();
+			
+			panel.setBackground(Color.decode("#D9BBA9"));
+			panel.setOpaque(true);
+			panel.setSize(500,500);
+			panel.setLocation(500,0);
+			panel.setLayout(null);
+			
+			JLabel etiqueta1= new JLabel("Username: ");
+			etiqueta1.setSize(100,50);
+			etiqueta1.setLocation(200,10);
+			etiqueta1.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta1.setFont(new Font("Cambria",Font.BOLD,18));
+			panel.add(etiqueta1);
+			
+			JTextField user_tag = new JTextField();
+			user_tag.setSize(250,30);
+			user_tag.setOpaque(true);
+			user_tag.setHorizontalAlignment(JLabel.HEIGHT);
+			user_tag.setFont(new Font("Cambria",Font.BOLD,14));
+			user_tag.setLocation(125,50);
+			panel.add(user_tag);
+			
+			JLabel etiqueta2= new JLabel("Bio: ");
+			etiqueta2.setSize(100,50);
+			etiqueta2.setLocation(200,70);
+			etiqueta2.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta2.setFont(new Font("Cambria",Font.BOLD,16));
+			panel.add(etiqueta2);
+			
+			JTextArea bio_tag = new JTextArea();
+			bio_tag.setSize(250,80);
+			bio_tag.setLocation(125,110);
+			panel.add(bio_tag);
+			
+			JLabel etiqueta3= new JLabel("Marital status: ");
+			etiqueta3.setSize(150,50);
+			etiqueta3.setLocation(180,180);
+			etiqueta3.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta3.setFont(new Font("Cambria",Font.BOLD,16));
+			panel.add(etiqueta3);
+			
+			JCheckBox boton = new JCheckBox("Married");
+			boton.setSize(80,30);
+			boton.setLocation(125,215);
+			boton.setFont(new Font("Cambria",Font.BOLD,14));
+			boton.setBackground(Color.decode("#D9BBA9"));
+			panel.add(boton);
+			
+			JCheckBox boton2 = new JCheckBox("Single");
+			boton2.setSize(80,30);
+			boton2.setLocation(210,215);
+			boton2.setFont(new Font("Cambria",Font.BOLD,14));
+			boton2.setBackground(Color.decode("#D9BBA9"));
+			panel.add(boton2);
+			
+			JCheckBox boton3 = new JCheckBox("Divorced");
+			boton3.setSize(90,30);
+			boton3.setLocation(285,215);
+			boton3.setFont(new Font("Cambria",Font.BOLD,14));
+			boton3.setBackground(Color.decode("#D9BBA9"));
+			panel.add(boton3);
+			
+			JLabel etiqueta4= new JLabel("Neighborhood ");
+			etiqueta4.setSize(150,50);
+			etiqueta4.setLocation(180,230);
+			etiqueta4.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta4.setFont(new Font("Cambria",Font.BOLD,16));
+			panel.add(etiqueta4);
+			
+			String [] col = {"Camino Real","Diana Laura","Centro","Calafia"};
+			JComboBox colonias = new JComboBox(col);
+			colonias.setSize(250,30);
+			colonias.setLocation(125,270);
+			panel.add(colonias);
+			
+			JButton join = new JButton("Log in");
+			join.setSize(100,50);
+			join.setBackground(Color.LIGHT_GRAY);
+			join.setFont(new Font("Cambria",Font.BOLD,14));
+			join.setLocation(200,330);
+			join.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+			panel.add(join);
+			
+			
+			JRadioButton acep_tag = new JRadioButton("Accept the terms",true);
+			acep_tag.setSize(110,20);
+			acep_tag.setLocation(125,300);
+			acep_tag.setFont(new Font("Cambria",Font.BOLD,10));
+			acep_tag.setBackground(Color.decode("#D9BBA9"));
+			acep_tag.setOpaque(true);
+			panel.add(acep_tag);
+			
+			JRadioButton dont_tag = new JRadioButton("don't accept the terms",false);
+			dont_tag.setSize(150,20);
+			dont_tag.setLocation(246,300);
+			dont_tag.setFont(new Font("Cambria",Font.BOLD,10));
+			dont_tag.setBackground(Color.decode("#D9BBA9"));
+			dont_tag.setOpaque(true);
+			panel.add(dont_tag);
+			
+			ButtonGroup botones = new ButtonGroup();
+			botones.add(acep_tag);
+			botones.add(dont_tag);
 			
 			
 			
 			
 			return panel;
+			
 		}
+		
+		
 }
