@@ -12,6 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -25,8 +27,9 @@ public class ventana extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
 		
-		this.add(this.login());
-		this.add(this.register());
+		//this.add(this.login());
+		//this.add(this.register());
+		this.add(this.users());
 		this.repaint();
 	}
 	//trabajo 9 apartir de aqui
@@ -223,6 +226,85 @@ public class ventana extends JFrame {
 			
 			return panel;
 			
+		}
+			public JPanel users(){
+			
+			JPanel panel = new JPanel();
+			
+			panel.setBackground(Color.decode("#D9BBA9"));
+			panel.setOpaque(true);
+			panel.setSize(500,500);
+			panel.setLocation(0,0);
+			panel.setLayout(null);
+			
+			JLabel etiqueta1= new JLabel("Bienvenido ");
+			etiqueta1.setSize(100,50);
+			etiqueta1.setLocation(200,10);
+			etiqueta1.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta1.setFont(new Font("Cambria",Font.BOLD,18));
+			panel.add(etiqueta1);
+			
+			String titles [] = {"nombre","apellido","edad"};
+			
+			String datos [][] = {
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"},
+				{"Carlos","Luquin","24"}};
+			
+			JTable tabla = new JTable(datos,titles);
+			JScrollPane scroll_pane = new JScrollPane(tabla);
+			scroll_pane.setSize(370,200);
+			scroll_pane.setLocation(60,200);
+			panel.add(scroll_pane);
+			
+			JButton join = new JButton("Aceptar");
+			join.setSize(70,40);
+			join.setBackground(Color.LIGHT_GRAY);
+			join.setFont(new Font("Cambria",Font.BOLD,14));
+			join.setLocation(270,150);
+			join.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+			panel.add(join);
+			
+			JButton join2 = new JButton("Denegar");
+			join2.setSize(70,40);
+			join2.setBackground(Color.LIGHT_GRAY);
+			join2.setFont(new Font("Cambria",Font.BOLD,14));
+			join2.setLocation(360,150);
+			join2.setBorder(BorderFactory.createLineBorder(Color.BLACK,2));
+			panel.add(join2);
+			
+			JLabel etiqueta2= new JLabel("Numero de usuarios:");
+			etiqueta2.setSize(200,50);
+			etiqueta2.setLocation(33,70);
+			etiqueta2.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta2.setFont(new Font("Cambria",Font.BOLD,16));
+			panel.add(etiqueta2);
+			
+			JLabel etiqueta3= new JLabel("15");
+			etiqueta3.setSize(200,50);
+			etiqueta3.setLocation(33,100);
+			etiqueta3.setHorizontalAlignment(JLabel.CENTER);
+			etiqueta3.setFont(new Font("Cambria",Font.BOLD,20));
+			panel.add(etiqueta3);
+					
+			
+			
+			
+			
+			
+			return panel;
 		}
 		
 		
