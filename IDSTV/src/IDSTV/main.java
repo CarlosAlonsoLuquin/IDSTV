@@ -8,10 +8,6 @@ public class main {
 		
 		ventana Ventana=new ventana();
 		
-		System.out.println("hola");
-		
-		
-		
 
 	}
 	
