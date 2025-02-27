@@ -28,14 +28,15 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(1000, 500);
+		this.setSize(300, 350);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
 
-		this.add(this.login());
+		//this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
+		this.add(this.calculadora());
 		JMenuBar barra = new JMenuBar();
 		
 		JMenu file = new JMenu("Archivo");
@@ -70,7 +71,6 @@ public class ventana extends JFrame {
 		
 		
 		this.setJMenuBar(barra);
-		//this.setJMenuBar(barra2);
 		this.repaint();
 		this.revalidate();
 	}
@@ -346,6 +346,143 @@ public class ventana extends JFrame {
 
 		return panel;
 	}
+	
+	public JPanel calculadora() {
+		
+		JPanel panel = new JPanel();
+
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(300, 350);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		JTextField user_tag = new JTextField();
+		user_tag.setSize(265, 30);
+		user_tag.setOpaque(true);
+		user_tag.setHorizontalAlignment(JLabel.HEIGHT);
+		user_tag.setFont(new Font("Cambria", Font.BOLD, 14));
+		user_tag.setLocation(10, 10);
+		user_tag.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		panel.add(user_tag);
+		
+		JButton button_0 = new JButton("O");
+		button_0.setSize(140, 45);
+		button_0.setBackground(Color.LIGHT_GRAY);
+		button_0.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_0.setLocation(10, 235);
+		panel.add(button_0);
+		
+		JButton button_n = new JButton(".");
+		button_n.setSize(55, 45);
+		button_n.setBackground(Color.LIGHT_GRAY);
+		button_n.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_n.setLocation(157, 235);
+		panel.add(button_n);
+		
+		JButton button_m = new JButton("=");
+		button_m.setSize(55, 100);
+		button_m.setBackground(Color.LIGHT_GRAY);
+		button_m.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_m.setLocation(220, 180);
+		panel.add(button_m);
+		
+		JButton button_k = new JButton("+");
+		button_k.setSize(55, 95);
+		button_k.setBackground(Color.LIGHT_GRAY);
+		button_k.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_k.setLocation(220, 80);
+		panel.add(button_k);
+		
+		JButton button_r = new JButton("-");
+		button_r.setSize(55, 30);
+		button_r.setBackground(Color.LIGHT_GRAY);
+		button_r.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_r.setLocation(220, 45);
+		panel.add(button_r);
+		
+		JButton button_1 = new JButton("1");
+		button_1.setSize(70, 50);
+		button_1.setBackground(Color.LIGHT_GRAY);
+		button_1.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_1.setLocation(10, 180);
+		panel.add(button_1);
+		
+		JButton button_2 = new JButton("2");
+		button_2.setSize(65, 50);
+		button_2.setBackground(Color.LIGHT_GRAY);
+		button_2.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_2.setLocation(85, 180);
+		panel.add(button_2);
+		
+		JButton button_3 = new JButton("3");
+		button_3.setSize(55, 50);
+		button_3.setBackground(Color.LIGHT_GRAY);
+		button_3.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_3.setLocation(157, 180);
+		panel.add(button_3);
+		
+		JButton button_4 = new JButton("4");
+		button_4.setSize(70, 45);
+		button_4.setBackground(Color.LIGHT_GRAY);
+		button_4.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_4.setLocation(10, 130);
+		panel.add(button_4);
+		
+		JButton button_5 = new JButton("5");
+		button_5.setSize(65, 45);
+		button_5.setBackground(Color.LIGHT_GRAY);
+		button_5.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_5.setLocation(85, 130);
+		panel.add(button_5);
+		
+		JButton button_6 = new JButton("6");
+		button_6.setSize(55, 45);
+		button_6.setBackground(Color.LIGHT_GRAY);
+		button_6.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_6.setLocation(157, 130);
+		panel.add(button_6);
+		
+		JButton button_7 = new JButton("7");
+		button_7.setSize(70, 45);
+		button_7.setBackground(Color.LIGHT_GRAY);
+		button_7.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_7.setLocation(10, 80);
+		panel.add(button_7);
+		
+		JButton button_8 = new JButton("8");
+		button_8.setSize(65, 45);
+		button_8.setBackground(Color.LIGHT_GRAY);
+		button_8.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_8.setLocation(85, 80);
+		panel.add(button_8);
+		
+		JButton button_9 = new JButton("9");
+		button_9.setSize(55, 45);
+		button_9.setBackground(Color.LIGHT_GRAY);
+		button_9.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_9.setLocation(157, 80);
+		panel.add(button_9);
+		
+		JButton button_g = new JButton("*");
+		button_g.setSize(100, 30);
+		button_g.setBackground(Color.LIGHT_GRAY);
+		button_g.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_g.setLocation(113, 45);
+		panel.add(button_g);
+		
+		JButton button_a = new JButton("/");
+		button_a.setSize(100, 30);
+		button_a.setBackground(Color.LIGHT_GRAY);
+		button_a.setFont(new Font("Cambria", Font.BOLD, 14));
+		button_a.setLocation(10, 45);
+		panel.add(button_a);
+		
+		
+		
+		return panel;
+	}
+	
 	
 	
 	
