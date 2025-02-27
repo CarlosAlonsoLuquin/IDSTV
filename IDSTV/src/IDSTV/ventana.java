@@ -9,9 +9,13 @@ import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -32,7 +36,43 @@ public class ventana extends JFrame {
 		this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
+		JMenuBar barra = new JMenuBar();
+		
+		JMenu file = new JMenu("Archivo");
+		barra.add(file);
+		
+		JMenuItem open = new JMenuItem("Abrir");
+		file.add(open);
+		
+		JCheckBoxMenuItem op_1 = new JCheckBoxMenuItem("hola");
+		file.add(op_1);
+		
+		JCheckBoxMenuItem op_2 = new JCheckBoxMenuItem("Guardar");
+		file.add(op_2);
+		
+		JMenuItem open3 = new JMenuItem("Ayuda");
+		file.add(open3);
+		
+		JMenuItem close = new JMenuItem("Cerrar");
+		file.add(close);
+		
+		
+		
+		
+		//JMenuBar barra2 = new JMenuBar();
+		
+		JMenu opciones = new JMenu("Opciones");
+		barra.add(opciones);
+		
+		JMenuItem open35 = new JMenuItem("Ayuda");
+		opciones.add(open35);
+		
+		
+		
+		this.setJMenuBar(barra);
+		//this.setJMenuBar(barra2);
 		this.repaint();
+		this.revalidate();
 	}
 
 	// trabajo 9 apartir de aqui
@@ -244,6 +284,7 @@ public class ventana extends JFrame {
 
 	public JPanel users() {
 
+
 		JPanel panel = new JPanel();
 
 		panel.setBackground(Color.decode("#D9BBA9"));
@@ -305,6 +346,8 @@ public class ventana extends JFrame {
 
 		return panel;
 	}
+	
+	
 	
 
 }
