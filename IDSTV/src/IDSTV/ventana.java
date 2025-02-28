@@ -1,7 +1,9 @@
 package IDSTV;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
@@ -40,7 +42,8 @@ public class ventana extends JFrame {
 		//this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
-		this.add(this.calculadora());
+		//this.add(this.calculadora());
+		this.add(this.calculadora2());
 		
 		
 		JMenuBar barra = new JMenuBar();
@@ -489,6 +492,58 @@ public class ventana extends JFrame {
 		
 		
 		return panel;
+	}
+	
+	public JPanel calculadora2() {
+		
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#380038")); 
+		panel.setOpaque(true);		
+		panel.setLayout(new BorderLayout());
+		
+		JLabel results = new JLabel("20.00");
+		results.setBackground(Color.WHITE);
+		results.setOpaque(true);
+		results.setFont(new Font("Cambria", Font.BOLD, 24));
+		results.setHorizontalAlignment(JLabel.RIGHT);
+		panel.add(results,BorderLayout.NORTH);
+		
+		JPanel centro = new JPanel();
+		centro.setBackground(Color.BLUE);
+		centro.setOpaque(true);
+		centro.setLayout(new BorderLayout());
+		panel.add(centro,BorderLayout.CENTER);
+		
+		JPanel botones = new JPanel();
+		botones.setBackground(Color.decode("#789090"));
+		botones.setLayout(new GridLayout(4,3,2,2));
+		
+		centro.add(botones,BorderLayout.CENTER);
+		
+		String[] textos = {"9", "8", "7", "6", "5", "4", "3", "2", "1", "0", "."};
+		
+		for (String texto_botton: textos) {
+			JButton boton = new JButton(texto_botton);
+			botones.add(boton);
+			
+		}
+		
+		JPanel orilla = new JPanel();
+		orilla.setBackground(Color.decode("#789090"));
+		orilla.setLayout(new GridLayout(6,1,2,2));
+		centro.add(orilla,BorderLayout.LINE_END);
+		
+		String[] textos2 = {"+", "-", "*", "/", "=", "CE"};
+		
+		for(String texto_boton : textos2) {
+			JButton boton = new JButton(texto_boton);
+			orilla.add(boton);
+		}
+				
+		return panel;
+		
+		
 	}
 	
 	
