@@ -3,6 +3,7 @@ package IDSTV;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.Toolkit;
 
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -32,11 +33,16 @@ public class ventana extends JFrame {
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
-
+		
+		
+		ImageIcon icono = new ImageIcon("imagenes/steam_icon.png");
+		setIconImage(icono.getImage());
 		//this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
 		this.add(this.calculadora());
+		
+		
 		JMenuBar barra = new JMenuBar();
 		
 		JMenu file = new JMenu("Archivo");
@@ -73,6 +79,8 @@ public class ventana extends JFrame {
 		this.setJMenuBar(barra);
 		this.repaint();
 		this.revalidate();
+		
+		
 	}
 
 	// trabajo 9 apartir de aqui
@@ -482,6 +490,8 @@ public class ventana extends JFrame {
 		
 		return panel;
 	}
+	
+	
 	
 	
 	
