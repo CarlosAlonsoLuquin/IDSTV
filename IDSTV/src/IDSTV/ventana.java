@@ -7,6 +7,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 
+
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -31,7 +32,7 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(300, 350);
+		this.setSize(400, 500);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
@@ -43,7 +44,8 @@ public class ventana extends JFrame {
 		// this.add(this.register());
 		// this.add(this.users());
 		//this.add(this.calculadora());
-		this.add(this.calculadora2());
+		//this.add(this.calculadora2());
+		this.add(this.interfaz());
 		
 		
 		JMenuBar barra = new JMenuBar();
@@ -505,7 +507,7 @@ public class ventana extends JFrame {
 		JLabel results = new JLabel("20.00");
 		results.setBackground(Color.WHITE);
 		results.setOpaque(true);
-		results.setFont(new Font("Cambria", Font.BOLD, 24));
+		results.setFont(new Font("Cambria", Font.BOLD, 35));
 		results.setHorizontalAlignment(JLabel.RIGHT);
 		panel.add(results,BorderLayout.NORTH);
 		
@@ -544,6 +546,102 @@ public class ventana extends JFrame {
 		return panel;
 		
 		
+	}
+	public JPanel interfaz() {
+		
+		JPanel panel = new JPanel();
+		 
+		panel.setOpaque(true);		
+		panel.setLayout(new BorderLayout());
+		
+		JLabel results = new JLabel("Interes");
+		results.setFont(new Font("Cambria", Font.BOLD, 18));
+		panel.add(results,BorderLayout.NORTH);
+		
+		JPanel centro = new JPanel();
+		centro.setBackground(Color.CYAN);
+		centro.setOpaque(true);
+		centro.setLayout(new BorderLayout());
+		panel.add(centro,BorderLayout.CENTER);
+		centro.setLayout(new GridLayout(3,3));
+		
+		JLabel text3 = new JLabel("Capital: ");
+		text3.setFont(new Font("Cambria", Font.BOLD, 18));
+		text3.setBorder(BorderFactory.createMatteBorder(45, 70,45, 1, Color.cyan));
+		centro.add(text3);
+		
+		JTextField texw3 = new JTextField("1500");
+		texw3.setFont(new Font("Cambria", Font.BOLD, 18));
+		texw3.setBorder(BorderFactory.createMatteBorder(45, 1, 45, 70, Color.cyan));
+		centro.add(texw3);
+		
+		JLabel text4 = new JLabel("Tiempo: ");
+		text4.setFont(new Font("Cambria", Font.BOLD, 18));
+		text4.setBorder(BorderFactory.createMatteBorder(45, 70,45, 1, Color.cyan));
+		centro.add(text4);
+		
+		JTextField texw4 = new JTextField("2");
+		texw4.setFont(new Font("Cambria", Font.BOLD, 18));
+		texw4.setBorder(BorderFactory.createMatteBorder(45, 1, 45, 70, Color.cyan));
+		centro.add(texw4);
+		
+		JLabel text5 = new JLabel("Tasa de interes: ");
+		text5.setFont(new Font("Cambria", Font.BOLD, 18));
+		text5.setBorder(BorderFactory.createMatteBorder(45, 35,45, 1, Color.cyan));
+		centro.add(text5);
+		
+		JTextField texw5 = new JTextField("0.1");
+		texw5.setFont(new Font("Cambria", Font.BOLD, 18));
+		texw5.setBorder(BorderFactory.createMatteBorder(45, 1, 45, 70, Color.cyan));
+		centro.add(texw5);
+		
+		
+		
+		
+		JPanel abajo = new JPanel();
+		abajo.setBackground(Color.CYAN);
+		abajo.setLayout(new GridLayout(2,2));
+		panel.add(abajo,BorderLayout.SOUTH);
+		
+		JLabel text1 = new JLabel("Interes: ");
+		text1.setFont(new Font("Cambria", Font.BOLD, 18));
+		text1.setBorder(BorderFactory.createMatteBorder(1, 70, 1, 1, Color.cyan));
+		abajo.add(text1);
+		
+		JTextField texw1 = new JTextField("315.000000");
+		texw1.setFont(new Font("Cambria", Font.BOLD, 18));
+		texw1.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 70, Color.cyan));
+		abajo.add(texw1);
+		
+		JLabel text2 = new JLabel("Monto");
+		text2.setFont(new Font("Cambria", Font.BOLD, 18));
+		text2.setBorder(BorderFactory.createMatteBorder(1, 70, 1, 1, Color.cyan));
+		abajo.add(text2);
+		
+		JTextField texw2 = new JTextField("45.000000");
+		texw2.setFont(new Font("Cambria", Font.BOLD, 18));
+		texw2.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 70, Color.cyan));
+		abajo.add(texw2);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		return panel;
 	}
 	
 	
