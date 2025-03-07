@@ -178,7 +178,7 @@ public class ventana2 {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\LUQUIN\\Downloads\\perfil.png"));
-		lblNewLabel.setBounds(42, 28, 208, 213);
+		lblNewLabel.setBounds(42, 28, 194, 186);
 		panel_8.add(lblNewLabel);
 		
 		JCheckBox chckbxNewCheckBox = new JCheckBox("Mostrar Foto De Perfil");

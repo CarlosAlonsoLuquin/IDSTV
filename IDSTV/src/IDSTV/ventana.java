@@ -1,13 +1,19 @@
 package IDSTV;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
-
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -32,7 +38,7 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(400, 500);
+		this.setSize(800, 600);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
@@ -45,7 +51,7 @@ public class ventana extends JFrame {
 		// this.add(this.users());
 		//this.add(this.calculadora());
 		//this.add(this.calculadora2());
-		this.add(this.interfaz());
+		//this.add(this.interfaz());
 		
 		
 		JMenuBar barra = new JMenuBar();
@@ -80,10 +86,10 @@ public class ventana extends JFrame {
 		opciones.add(open35);
 		
 		
-		
 		this.setJMenuBar(barra);
-		this.repaint();
+		
 		this.revalidate();
+		this.repaint();
 		
 		
 	}
@@ -624,24 +630,53 @@ public class ventana extends JFrame {
 		abajo.add(texw2);
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
+			
 		
 		return panel;
+	}
+	@Override
+	public void paint(Graphics g) {
+		
+		super.paint(g);
+		
+		Graphics2D g2d = (Graphics2D) g.create();
+		g2d.setStroke(new BasicStroke(5));
+		
+		g2d.drawRect(100, 100, 80, 80);
+		
+		g2d.setColor(Color.green);
+		
+		g2d.fillRect(120, 120, 80, 80);
+		
+		g2d.setColor(Color.MAGENTA);
+		
+		g2d.setFont(new Font("Cambria", Font.BOLD, 35));
+		g2d.drawString("HOLA", 150, 200);
+		
+		g2d.drawLine(50, 50, 500, 500);
+		
+		try {
+			BufferedImage image = ImageIO.read(new File("Imagenes/RD2.png"));
+			g2d.drawImage(image, 500, 150, null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int [] x1 = {500,375,400};
+		int [] y1 = {475,300,420};
+		
+		g2d.drawPolygon(x1, y1, 3);
+		
+		g2d.drawOval(100, 300, 100, 50);
+		g2d.fillOval(100, 300, 50, 100);
+		
+		g2d.drawArc(350, 200, 100, 100, 0, 180);
+		g2d.setColor(Color.orange);
+		g2d.fillArc(350, 200, 100, 100, 0, -180);
+		
+		
+		
 	}
 	
 	
