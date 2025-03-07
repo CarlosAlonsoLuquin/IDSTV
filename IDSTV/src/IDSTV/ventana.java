@@ -38,7 +38,7 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(800, 600);
+		this.setSize(600, 600);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
@@ -642,47 +642,74 @@ public class ventana extends JFrame {
 		Graphics2D g2d = (Graphics2D) g.create();
 		g2d.setStroke(new BasicStroke(5));
 		
-		g2d.drawRect(100, 100, 80, 80);
 		
-		g2d.setColor(Color.green);
+		g2d.setColor(Color.decode("#D4F6FF"));
+		g2d.fillRect(0, 0, 600, 600);
 		
-		g2d.fillRect(120, 120, 80, 80);
+		g2d.setColor(Color.decode("#AF8260"));
+		g2d.fillRect(0, 550, 600, 50);
 		
-		g2d.setColor(Color.MAGENTA);
+		g2d.setColor(Color.decode("#E4C59E"));
+		g2d.fillRect(0, 500, 600, 50);
 		
-		g2d.setFont(new Font("Cambria", Font.BOLD, 35));
-		g2d.drawString("HOLA", 150, 200);
+		g2d.setColor(Color.decode("#255F38"));
+		g2d.fillRect(0, 440, 600, 60);
+	
+		g2d.setColor(Color.decode("#18230F"));
+		g2d.fillRect(0, 410, 600, 30);
 		
-		g2d.drawLine(50, 50, 500, 500);
+		g2d.setColor(Color.decode("#504B38"));//fondo serca
+		g2d.fillRect(0, 365, 600, 30);
+		g2d.fillRect(0, 315, 600, 30);
+		g2d.fillRect(0, 265, 600, 30);
 		
-		try {
-			BufferedImage image = ImageIO.read(new File("Imagenes/RD2.png"));
-			g2d.drawImage(image, 500, 150, null);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		g2d.setColor(Color.decode("#F2E2B1"));//sercas
+		g2d.fillRect(0, 240, 40, 170);
+		g2d.fillRect(60, 240, 40, 170);
+		g2d.fillRect(120, 240, 40, 170);
+		g2d.fillRect(180, 240, 40, 170);
+		g2d.fillRect(240, 240, 40, 170);
+		g2d.fillRect(300, 240, 40, 170);
+		g2d.fillRect(360, 240, 40, 170);
+		g2d.fillRect(420, 240, 40, 170);
+		g2d.fillRect(480, 240, 40, 170);
+		g2d.fillRect(540, 240, 40, 170);
 		
-		int [] x1 = {500,375,400};
-		int [] y1 = {475,300,420};
+		g2d.setColor(Color.decode("#9AA6B2"));
+		g2d.fillRect(75, 380, 450, 30);//piso
 		
-		g2d.drawPolygon(x1, y1, 3);
+		g2d.setColor(Color.decode("#FFB22C"));
+		g2d.fillRect(120, 130, 375, 250);//casa
 		
-		g2d.drawOval(100, 300, 100, 50);
-		g2d.fillOval(100, 300, 50, 100);
+		g2d.setColor(Color.decode("#854836"));
+		g2d.fillRect(250, 180, 100,200);//puerta
 		
-		g2d.drawArc(350, 200, 100, 100, 0, 180);
-		g2d.setColor(Color.orange);
-		g2d.fillArc(350, 200, 100, 100, 0, -180);
+		g2d.setColor(Color.decode("#000000"));
+		g2d.fillOval(265, 270, 10, 10);//manija
 		
+		g2d.setColor(Color.decode("#854836"));//ventana
+		g2d.fillRect(145, 200, 75,75);
+		g2d.fillRect(385, 200, 75,75);
+		
+		g2d.setColor(Color.decode("#C6E7FF"));//vidrio
+		g2d.fillRect(155, 215, 25,20);
+		g2d.fillRect(185, 215, 25,20);
+		g2d.fillRect(185, 240, 25,20);
+		g2d.fillRect(155, 240, 25,20);
+		
+		g2d.fillRect(395, 215, 25,20);//vidrio2
+		g2d.fillRect(425, 215, 25,20);
+		g2d.fillRect(425, 240, 25,20);
+		g2d.fillRect(395, 240, 25,20);
+		
+		g2d.setColor(Color.decode("#504B38"));//techo
+		g2d.fillRect(75, 130, 450, 40);
+		
+		g2d.setColor(Color.decode("#FFD95F"));
+		g2d.fillOval(-30, 0, 100, 100);
 		
 		
 	}
 	
 	
-	
-	
-	
-	
-
 }
