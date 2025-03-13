@@ -9,6 +9,8 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -27,6 +29,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -46,7 +49,7 @@ public class ventana extends JFrame {
 		
 		ImageIcon icono = new ImageIcon("imagenes/steam_icon.png");
 		setIconImage(icono.getImage());
-		//this.add(this.login());
+		this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
 		//this.add(this.calculadora());
@@ -136,13 +139,22 @@ public class ventana extends JFrame {
 		etiqueta3.setLocation(200, 135);
 		panel.add(etiqueta3);
 
-		JTextField pass = new JTextField();
+		JPasswordField pass = new JPasswordField();
 		pass.setSize(250, 30);
 		pass.setOpaque(true);
 		pass.setHorizontalAlignment(JLabel.HEIGHT);
 		pass.setFont(new Font("Cambria", Font.BOLD, 14));
 		pass.setLocation(125, 165);
 		panel.add(pass);
+		
+		pass.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				
+			}
+		});
 
 		JButton join = new JButton("Log in");
 		join.setSize(100, 50);
@@ -150,6 +162,31 @@ public class ventana extends JFrame {
 		join.setFont(new Font("Cambria", Font.BOLD, 14));
 		join.setLocation(200, 250);
 		panel.add(join);
+		
+		join.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (email.getText().equals("")) {
+					email.setBorder(BorderFactory.createLineBorder(Color.RED,3));
+					
+				}else {
+					email.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				String myPassword = new String(pass.getPassword());
+				if (myPassword.equals("")) {
+					pass.setBorder(BorderFactory.createLineBorder(Color.RED,3));
+					
+				}else {
+					pass.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+			}
+			
+		});
+		
+		
 
 		JLabel etiqueta4 = new JLabel("Forgot your password? ");
 		etiqueta4.setSize(200, 30);
@@ -215,6 +252,8 @@ public class ventana extends JFrame {
 		user_tag.setFont(new Font("Cambria", Font.BOLD, 14));
 		user_tag.setLocation(125, 50);
 		panel.add(user_tag);
+		
+
 
 		JLabel etiqueta2 = new JLabel("Bio: ");
 		etiqueta2.setSize(100, 50);
@@ -276,6 +315,30 @@ public class ventana extends JFrame {
 		join.setLocation(200, 330);
 		join.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
 		panel.add(join);
+		
+		join.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (user_tag.getText().equals("")) {
+					user_tag.setBorder(BorderFactory.createLineBorder(Color.RED,3));
+					
+				}else {
+					user_tag.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				if (bio_tag.getText().equals("")) {
+					bio_tag.setBorder(BorderFactory.createLineBorder(Color.RED,3));
+					
+				}else {
+					bio_tag.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				
+			}
+			
+		});
 
 		JRadioButton acep_tag = new JRadioButton("Accept the terms", true);
 		acep_tag.setSize(110, 20);
@@ -637,12 +700,12 @@ public class ventana extends JFrame {
 	@Override
 	public void paint(Graphics g) {
 		
-		super.paint(g);
-		
-		Graphics2D g2d = (Graphics2D) g.create();
-		g2d.setStroke(new BasicStroke(5));
-		g2d.setColor(Color.decode("#2e14ed"));
-		g2d.fillRect(0, 0, 1300, 600);
+//		super.paint(g);
+//		
+//		Graphics2D g2d = (Graphics2D) g.create();
+//		g2d.setStroke(new BasicStroke(5));
+//		g2d.setColor(Color.decode("#2e14ed"));
+//		g2d.fillRect(0, 0, 1300, 600);
 //		g2d.setColor(Color.decode("#AF8260"));
 //		g2d.fillRect(0, 550, 600, 50);
 //		g2d.setColor(Color.decode("#E4C59E"));
@@ -694,117 +757,117 @@ public class ventana extends JFrame {
 		
 		//aqui inicia el mario 3
 		
-		g2d.setColor(Color.decode("#AF8260"));
-		g2d.fillRect(0, 500, 1300, 100);
-		g2d.setStroke(new BasicStroke(10));
-		g2d.setColor(Color.BLACK);
-		g2d.drawRect(0, 500, 1300, 100);
-		
-		g2d.setStroke(new BasicStroke(7));//cubo azul
-		g2d.setColor(Color.BLACK);
-		g2d.drawRoundRect(450, 165, 230, 330, 30, 30);
-		g2d.fillRoundRect(490, 220, 230, 280, 30, 30);
-		g2d.setColor(Color.decode("#4f2cee"));//color principal
-		g2d.fillRoundRect(450, 165, 230, 330, 30, 30);
-		g2d.setColor(Color.decode("#acacac"));
-		g2d.fillOval(460, 175, 30, 30);
-		g2d.fillOval(645, 175, 30, 30);
-		g2d.setStroke(new BasicStroke(3));
-		g2d.setColor(Color.BLACK);
-		g2d.drawOval(460, 175, 30, 30);
-		g2d.drawOval(645, 175, 30, 30);
-		
-		
-		
-		
-		g2d.setStroke(new BasicStroke(7));// cubo rosa
-		g2d.setColor(Color.BLACK);
-		g2d.drawRoundRect(300, 265, 230, 230, 30, 30);
-		g2d.fillRoundRect(320, 300, 250, 200, 30, 30);
-		
-		g2d.setColor(Color.decode("#FFB4A2"));//color principal
-		g2d.fillRoundRect(300, 265, 230, 230, 30, 30);
-		g2d.setColor(Color.decode("#acacac"));
-		g2d.fillOval(310, 460, 30, 30);
-		g2d.fillOval(310, 270, 30, 30);
-		g2d.fillOval(495, 270, 30, 30);
-		g2d.fillOval(495, 460, 30, 30);
-		
-		g2d.setStroke(new BasicStroke(3));
-		g2d.setColor(Color.BLACK);
-		g2d.drawOval(310, 460, 30, 30);
-		g2d.drawOval(310, 270, 30, 30);
-		g2d.drawOval(495, 270, 30, 30);
-		g2d.drawOval(495, 460, 30, 30);
-		
-		g2d.setStroke(new BasicStroke(10));// cubo verde
-		g2d.setColor(Color.BLACK);
-		g2d.drawRoundRect(1090, 265, 230, 230, 30, 30);
-		g2d.setColor(Color.decode("#5fb34d"));// color principal
-		g2d.fillRoundRect(1090, 265, 230, 230, 30, 30);
-		
-		g2d.setColor(Color.decode("#acacac"));
-		g2d.fillOval(1100, 270, 30, 30);
-		g2d.fillOval(1100, 460, 30, 30);
-		g2d.setStroke(new BasicStroke(3));
-		g2d.setColor(Color.BLACK);
-		g2d.drawOval(1100, 270, 30, 30);
-		g2d.drawOval(1100, 460, 30, 30);
-		
-	
-		g2d.setColor(Color.BLACK);//cuadro chico
-		g2d.drawRect(75, 190, 75, 75);
-		g2d.fillRect(65, 180, 87, 87);
-		g2d.fillRect(1150, 75, 87, 87);
-		g2d.drawRect(1150, 75, 87, 87);
-		
-		g2d.setStroke(new BasicStroke(3));
-		g2d.drawRect(310, 50, 75, 75);
-		g2d.fillRect(300, 45, 90, 90);
-		g2d.drawRect(225, 50, 75, 75);
-		g2d.fillRect(215, 45, 90, 90);
-		
-		g2d.fillRect(1144, 70, 100, 100);
-		g2d.drawRect(1150, 75, 87, 87);
-		
-		
-		
-		g2d.setColor(Color.decode("#FFAB5B"));//color principal
-		g2d.fillRect(75, 190, 75, 75);
-		
-		g2d.fillRect(310, 50, 75, 75);
-		g2d.fillRect(225, 50, 75, 75);
-		
-		g2d.fillRect(1150, 75, 87, 87);
-		
-		g2d.setColor(Color.BLACK);//puntitos cuadritos
-		g2d.fillOval(315, 55, 10, 10);
-		g2d.fillOval(370, 55, 10, 10);
-		g2d.fillOval(370, 110, 10, 10);
-		g2d.fillOval(315, 110, 10, 10);
-		
-		g2d.fillOval(230, 55, 10, 10);
-		g2d.fillOval(285, 55, 10, 10);
-		g2d.fillOval(285, 110, 10, 10);
-		g2d.fillOval(230, 110, 10, 10);
-		
-		g2d.fillOval(80, 195, 10, 10);
-		g2d.fillOval(135, 195, 10, 10);
-		g2d.fillOval(135, 250, 10, 10);
-		g2d.fillOval(80, 250, 10, 10);
-		
-		g2d.fillOval(1155, 80, 10, 10);
-		g2d.fillOval(1225, 80, 10, 10);
-		g2d.fillOval(1225, 145, 10, 10);
-		g2d.fillOval(1155, 145, 10, 10);
-		
-		try {
-			BufferedImage image = ImageIO.read(new File("Imagenes/mario.png"));
-			g2d.drawImage(image, 650, 355, null);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		g2d.setColor(Color.decode("#AF8260"));
+//		g2d.fillRect(0, 500, 1300, 100);
+//		g2d.setStroke(new BasicStroke(10));
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawRect(0, 500, 1300, 100);
+//		
+//		g2d.setStroke(new BasicStroke(7));//cubo azul
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawRoundRect(450, 165, 230, 330, 30, 30);
+//		g2d.fillRoundRect(490, 220, 230, 280, 30, 30);
+//		g2d.setColor(Color.decode("#4f2cee"));//color principal
+//		g2d.fillRoundRect(450, 165, 230, 330, 30, 30);
+//		g2d.setColor(Color.decode("#acacac"));
+//		g2d.fillOval(460, 175, 30, 30);
+//		g2d.fillOval(645, 175, 30, 30);
+//		g2d.setStroke(new BasicStroke(3));
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawOval(460, 175, 30, 30);
+//		g2d.drawOval(645, 175, 30, 30);
+//		
+//		
+//		
+//		
+//		g2d.setStroke(new BasicStroke(7));// cubo rosa
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawRoundRect(300, 265, 230, 230, 30, 30);
+//		g2d.fillRoundRect(320, 300, 250, 200, 30, 30);
+//		
+//		g2d.setColor(Color.decode("#FFB4A2"));//color principal
+//		g2d.fillRoundRect(300, 265, 230, 230, 30, 30);
+//		g2d.setColor(Color.decode("#acacac"));
+//		g2d.fillOval(310, 460, 30, 30);
+//		g2d.fillOval(310, 270, 30, 30);
+//		g2d.fillOval(495, 270, 30, 30);
+//		g2d.fillOval(495, 460, 30, 30);
+//		
+//		g2d.setStroke(new BasicStroke(3));
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawOval(310, 460, 30, 30);
+//		g2d.drawOval(310, 270, 30, 30);
+//		g2d.drawOval(495, 270, 30, 30);
+//		g2d.drawOval(495, 460, 30, 30);
+//		
+//		g2d.setStroke(new BasicStroke(10));// cubo verde
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawRoundRect(1090, 265, 230, 230, 30, 30);
+//		g2d.setColor(Color.decode("#5fb34d"));// color principal
+//		g2d.fillRoundRect(1090, 265, 230, 230, 30, 30);
+//		
+//		g2d.setColor(Color.decode("#acacac"));
+//		g2d.fillOval(1100, 270, 30, 30);
+//		g2d.fillOval(1100, 460, 30, 30);
+//		g2d.setStroke(new BasicStroke(3));
+//		g2d.setColor(Color.BLACK);
+//		g2d.drawOval(1100, 270, 30, 30);
+//		g2d.drawOval(1100, 460, 30, 30);
+//		
+//	
+//		g2d.setColor(Color.BLACK);//cuadro chico
+//		g2d.drawRect(75, 190, 75, 75);
+//		g2d.fillRect(65, 180, 87, 87);
+//		g2d.fillRect(1150, 75, 87, 87);
+//		g2d.drawRect(1150, 75, 87, 87);
+//		
+//		g2d.setStroke(new BasicStroke(3));
+//		g2d.drawRect(310, 50, 75, 75);
+//		g2d.fillRect(300, 45, 90, 90);
+//		g2d.drawRect(225, 50, 75, 75);
+//		g2d.fillRect(215, 45, 90, 90);
+//		
+//		g2d.fillRect(1144, 70, 100, 100);
+//		g2d.drawRect(1150, 75, 87, 87);
+//		
+//		
+//		
+//		g2d.setColor(Color.decode("#FFAB5B"));//color principal
+//		g2d.fillRect(75, 190, 75, 75);
+//		
+//		g2d.fillRect(310, 50, 75, 75);
+//		g2d.fillRect(225, 50, 75, 75);
+//		
+//		g2d.fillRect(1150, 75, 87, 87);
+//		
+//		g2d.setColor(Color.BLACK);//puntitos cuadritos
+//		g2d.fillOval(315, 55, 10, 10);
+//		g2d.fillOval(370, 55, 10, 10);
+//		g2d.fillOval(370, 110, 10, 10);
+//		g2d.fillOval(315, 110, 10, 10);
+//		
+//		g2d.fillOval(230, 55, 10, 10);
+//		g2d.fillOval(285, 55, 10, 10);
+//		g2d.fillOval(285, 110, 10, 10);
+//		g2d.fillOval(230, 110, 10, 10);
+//		
+//		g2d.fillOval(80, 195, 10, 10);
+//		g2d.fillOval(135, 195, 10, 10);
+//		g2d.fillOval(135, 250, 10, 10);
+//		g2d.fillOval(80, 250, 10, 10);
+//		
+//		g2d.fillOval(1155, 80, 10, 10);
+//		g2d.fillOval(1225, 80, 10, 10);
+//		g2d.fillOval(1225, 145, 10, 10);
+//		g2d.fillOval(1155, 145, 10, 10);
+//		
+//		try {
+//			BufferedImage image = ImageIO.read(new File("Imagenes/mario.png"));
+//			g2d.drawImage(image, 650, 355, null);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		// super mario 
 		
@@ -933,7 +996,7 @@ public class ventana extends JFrame {
 //		g2d.fillOval(470, 130, 20, 35);
 //		g2d.fillRoundRect(-50, 200, 100, 30, 50, 50);
 //		g2d.fillRoundRect(0, 300, 150, 30, 50, 50);
-//		
+		
 		
 		
 		
