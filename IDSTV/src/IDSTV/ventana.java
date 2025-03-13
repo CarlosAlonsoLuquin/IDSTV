@@ -28,6 +28,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -168,6 +169,8 @@ public class ventana extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				Boolean flag1 = false, flag2 = false;
+				
 				if (email.getText().equals("")) {
 					email.setBorder(BorderFactory.createLineBorder(Color.RED,3));
 					
@@ -181,6 +184,14 @@ public class ventana extends JFrame {
 					
 				}else {
 					pass.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				if (flag1 && flag2) {
+					if (email.getText().equals("carlos_23"));
+				}if(pass.equals("123456")) {
+					JOptionPane.showMessageDialog(null, "bienvenido","hello",JOptionPane.WARNING_MESSAGE);
+				}else {
+					JOptionPane.showMessageDialog(null, "Error en el acceso","hello",JOptionPane.ERROR_MESSAGE);
 				}
 			}
 			
@@ -321,6 +332,8 @@ public class ventana extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				Boolean flag1 = false, flag2 = false;
+				
 				if (user_tag.getText().equals("")) {
 					user_tag.setBorder(BorderFactory.createLineBorder(Color.RED,3));
 					
@@ -334,6 +347,7 @@ public class ventana extends JFrame {
 				}else {
 					bio_tag.setBorder(BorderFactory.createLineBorder(Color.green,3));
 				}
+				
 				
 				
 			}
