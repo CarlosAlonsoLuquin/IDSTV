@@ -51,6 +51,7 @@ public class ventana extends JFrame {
 		ImageIcon icono = new ImageIcon("imagenes/steam_icon.png");
 		setIconImage(icono.getImage());
 		this.add(this.login());
+		
 		// this.add(this.register());
 		// this.add(this.users());
 		//this.add(this.calculadora());
@@ -58,39 +59,82 @@ public class ventana extends JFrame {
 		//this.add(this.interfaz());
 		
 		
-//		JMenuBar barra = new JMenuBar();
-//		
-//		JMenu file = new JMenu("Archivo");
-//		barra.add(file);
-//		
-//		JMenuItem open = new JMenuItem("Abrir");
-//		file.add(open);
-//		
-//		JCheckBoxMenuItem op_1 = new JCheckBoxMenuItem("hola");
-//		file.add(op_1);
-//		
-//		JCheckBoxMenuItem op_2 = new JCheckBoxMenuItem("Guardar");
-//		file.add(op_2);
-//		
-//		JMenuItem open3 = new JMenuItem("Ayuda");
-//		file.add(open3);
-//		
-//		JMenuItem close = new JMenuItem("Cerrar");
-//		file.add(close);
-//		
-//		
-//		
-//		
-//		//JMenuBar barra2 = new JMenuBar();
-//		
-//		JMenu opciones = new JMenu("Opciones");
-//		barra.add(opciones);
-//		
-//		JMenuItem open35 = new JMenuItem("Ayuda");
-//		opciones.add(open35);
+		JMenuBar barra = new JMenuBar();
+		
+		JMenu file = new JMenu("Archivo");
+		barra.add(file);
+		
+		JMenuItem open = new JMenuItem("Abrir");
+		file.add(open);
+		
+		JCheckBoxMenuItem op_1 = new JCheckBoxMenuItem("hola");
+		file.add(op_1);
+		
+		JCheckBoxMenuItem op_2 = new JCheckBoxMenuItem("Guardar");
+		file.add(op_2);
+		
+		JMenuItem open3 = new JMenuItem("Ayuda");
+		file.add(open3);
+		
+		JMenuItem close = new JMenuItem("Cerrar");
+		file.add(close);
 		
 		
-//		this.setJMenuBar(barra);
+		
+		
+		JMenu opciones = new JMenu("Opciones");
+		barra.add(opciones);
+		
+		JMenuItem open35 = new JMenuItem("Ayuda");
+		opciones.add(open35);
+		
+		JMenu opciones2 = new JMenu("cambio");
+		barra.add(opciones2);
+		
+		JMenuItem open5 = new JMenuItem("registro");
+		open5.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				router("register");
+				
+			}
+		});
+		opciones2.add(open5);
+		
+		JMenuItem open6 = new JMenuItem("login");
+		open6.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("login");
+				
+			}
+		});
+		
+		opciones2.add(open6);
+		
+		
+		this.setJMenuBar(barra);
+		
+		this.revalidate();
+		this.repaint();
+		
+		
+	}
+	
+	public void router(String route) {
+		
+		this.getContentPane().removeAll();
+		
+		if(route.equals("register")) {
+			this.add(this.register());
+		}
+		if(route.equals("login")) {
+			this.add(this.login());
+		}
+		
 		
 		this.revalidate();
 		this.repaint();
@@ -148,15 +192,7 @@ public class ventana extends JFrame {
 		pass.setLocation(125, 165);
 		panel.add(pass);
 		
-		pass.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				
-			}
-		});
-
+	
 		JButton join = new JButton("Log in");
 		join.setSize(100, 50);
 		join.setBackground(Color.LIGHT_GRAY);
@@ -196,6 +232,27 @@ public class ventana extends JFrame {
 			}
 			
 		});
+		
+		JButton ir_registro = new JButton("ir al registro");
+		ir_registro.setSize(130, 50);
+		ir_registro.setBackground(Color.LIGHT_GRAY);
+		ir_registro.setFont(new Font("Cambria", Font.BOLD, 12));
+		ir_registro.setLocation(200, 320);
+		panel.add(ir_registro);
+		
+		ir_registro.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				router("register");
+				
+			}
+			
+		});
+		
+	
+		
 		
 		
 
@@ -349,6 +406,24 @@ public class ventana extends JFrame {
 				}
 				
 				
+				
+			}
+			
+		});
+		
+		JButton ir_login = new JButton("ir al login");
+		ir_login.setSize(130, 50);
+		ir_login.setBackground(Color.LIGHT_GRAY);
+		ir_login.setFont(new Font("Cambria", Font.BOLD, 12));
+		ir_login.setLocation(200, 400);
+		panel.add(ir_login);
+		
+		ir_login.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				router("login");
 				
 			}
 			
@@ -711,8 +786,8 @@ public class ventana extends JFrame {
 		
 		return panel;
 	}
-	@Override
-	public void paint(Graphics g) {
+//	@Override
+//	public void paint(Graphics g) {
 		
 //		super.paint(g);
 //		
@@ -1014,7 +1089,7 @@ public class ventana extends JFrame {
 		
 		
 		
-	}
+	//}
 	
 	
 }
