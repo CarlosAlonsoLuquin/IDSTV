@@ -42,7 +42,7 @@ public class ventana extends JFrame {
 	public ventana() {
 		this.setTitle("Hola");
 		this.setVisible(true);
-		this.setSize(1300, 600);
+		this.setSize(1000, 600);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(true);
@@ -50,13 +50,13 @@ public class ventana extends JFrame {
 		
 		ImageIcon icono = new ImageIcon("imagenes/steam_icon.png");
 		setIconImage(icono.getImage());
-		this.add(this.login());
-		
+		//this.add(this.login());
 		// this.add(this.register());
 		// this.add(this.users());
 		//this.add(this.calculadora());
 		//this.add(this.calculadora2());
 		//this.add(this.interfaz());
+		this.add(this.recuperacion());
 		
 		
 		JMenuBar barra = new JMenuBar();
@@ -88,8 +88,20 @@ public class ventana extends JFrame {
 		JMenuItem open35 = new JMenuItem("Ayuda");
 		opciones.add(open35);
 		
-		JMenu opciones2 = new JMenu("cambio");
+		JMenu opciones2 = new JMenu("Cuenta");
 		barra.add(opciones2);
+		
+		JMenuItem open2 = new JMenuItem("recuperacion de cuenta");
+		opciones2.add(open2);
+		open2.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				router("recuperacion de cuenta");
+				
+			}
+		});
 		
 		JMenuItem open5 = new JMenuItem("registro");
 		open5.addActionListener(new ActionListener() {
@@ -112,8 +124,83 @@ public class ventana extends JFrame {
 				
 			}
 		});
-		
 		opciones2.add(open6);
+		
+		JMenu opciones3 = new JMenu("usuarios");
+		barra.add(opciones3);
+		
+		JMenuItem open1 = new JMenuItem("Alta");
+		open1.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("Alta");
+				
+			}
+		});
+		opciones3.add(open1);
+		
+		
+		
+		JMenuItem open4 = new JMenuItem("Baja");
+		open4.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("Baja");
+				
+			}
+		});
+		opciones3.add(open4);
+		
+		JMenuItem open7 = new JMenuItem("Consultar");
+		open7.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("Consultar");
+				
+			}
+		});
+		opciones3.add(open7);
+		
+		JMenu opciones4 = new JMenu("Ayuda");
+		barra.add(opciones4);
+		
+		JMenuItem open8 = new JMenuItem("¿Cómo crear un usuario?");
+		open8.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("¿Cómo crear un usuario?");
+				
+			}
+		});
+		opciones4.add(open8);
+		
+		JMenuItem open9 = new JMenuItem("¿Cómo acceder al sistema?");
+		open9.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("¿Cómo acceder al sistema?");
+				
+			}
+		});
+		opciones4.add(open9);
+		
+		JMenuItem open10 = new JMenuItem("¿Qué pasa si olvidé mi contraseña?");
+		open10.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				router("¿Qué pasa si olvidé mi contraseña?");
+				
+			}
+		});
+		opciones4.add(open10);
+		
+		
 		
 		
 		this.setJMenuBar(barra);
@@ -123,8 +210,111 @@ public class ventana extends JFrame {
 		
 		
 	}
+	public JPanel Sistema() {
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	}
 	
-	public void router(String route) {
+	public JPanel Nuevacontraseña() {
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	}
+	
+	public JPanel Usuarionuevo() {
+		
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	} 
+	public JPanel Consultar() {
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.blue);
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	}
+	public JPanel baja() {
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.blue);
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	}
+	public JPanel alta() {
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+		
+	}
+	public JPanel recuperacion() {
+		
+		JPanel panel = new JPanel();
+		
+		panel.setBackground(Color.decode("#789090"));
+		panel.setOpaque(true);
+		panel.setSize(1000, 600);
+		panel.setLocation(0, 0);
+		panel.setLayout(null);
+	
+		
+		
+		
+		
+		
+		
+		
+		this.revalidate();
+		this.repaint();
+		return panel;
+	}
+	
+ 	public void router(String route) {
 		
 		this.getContentPane().removeAll();
 		
@@ -134,6 +324,34 @@ public class ventana extends JFrame {
 		if(route.equals("login")) {
 			this.add(this.login());
 		}
+		
+		if(route.equals("recuperacion de cuenta")) {
+			this.add(this.recuperacion());
+		}
+		if(route.equals("Alta")) {
+			this.add(this.alta());
+		}
+		if(route.equals("Baja")) {
+			this.add(this.baja());
+		}
+		if(route.equals("Consultar")) {
+			this.add(this.Consultar());
+		}
+		if(route.equals("¿Cómo crear un usuario?")) {
+			this.add(this.Usuarionuevo());
+		}
+		if(route.equals("¿Qué pasa si olvidé mi contraseña?")) {
+			this.add(this.Nuevacontraseña());
+		}
+		if(route.equals("¿Cómo acceder al sistema?")) {
+			this.add(this.Sistema());
+		}
+		
+		
+		
+		
+		
+			
 		
 		
 		this.revalidate();
