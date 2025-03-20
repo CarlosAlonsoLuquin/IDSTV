@@ -693,6 +693,7 @@ public class ventana extends JFrame {
 
 				} else {
 					email.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+					flag1 = true;
 				}
 
 				String myPassword = new String(pass.getPassword());
@@ -701,21 +702,21 @@ public class ventana extends JFrame {
 
 				} else {
 					pass.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+					flag2 = true;
 				}
 
 				if (flag1 && flag2) {
-					if (email.getText().equals("carlos_23"))
-						;
-				}
-				if (pass.equals("123456")) {
-					JOptionPane.showMessageDialog(null, "bienvenido", "hello", JOptionPane.WARNING_MESSAGE);
-				} else {
-					JOptionPane.showMessageDialog(null, "Error en el acceso", "hello", JOptionPane.ERROR_MESSAGE);
+					if (email.getText().equals("luquin@gmail.com")) {
+						if (myPassword.equals("contra123"))
+							JOptionPane.showMessageDialog(null, "Bienvenido", "hola", JOptionPane.WARNING_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(null, "Fatal error", "hola", JOptionPane.WARNING_MESSAGE);
+					} else
+						JOptionPane.showMessageDialog(null, "Fatal error", "hola", JOptionPane.WARNING_MESSAGE);
 				}
 			}
 
 		});
-
 		JButton ir_registro = new JButton("ir al registro");
 		ir_registro.setSize(130, 50);
 		ir_registro.setBackground(Color.LIGHT_GRAY);
