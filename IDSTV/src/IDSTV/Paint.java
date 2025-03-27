@@ -4,11 +4,15 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Canvas;
 import java.awt.Panel;
+import java.awt.Point;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.GridLayout;
@@ -17,18 +21,32 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JSlider;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.JComboBox;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 
-public class Paint {
+public class Paint implements MouseListener,MouseMotionListener {
 
 	private JFrame frame;
+	private DrawingPanel drawingPanel;
+	private Point lastPoint;
+	private List<Point> points = new ArrayList<>();
+	List<List<Point>> listaDePuntos = new ArrayList<>();
+	private int grosorTrazo = 3;
+	
 
 	/**
 	 * Launch the application.
@@ -38,7 +56,7 @@ public class Paint {
 			public void run() {
 				try {
 					Paint window = new Paint();
-					window.frame.setVisible(true);
+		 			window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,13 +68,13 @@ public class Paint {
 	 * Create the application.
 	 */
 	public Paint() {
-		initialize(null);
+		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(Graphics g) {
+	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1000, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -134,8 +152,19 @@ public class Paint {
 		lblNewLabel_1.setBounds(10, 10, 46, 17);
 		panel_3_1.add(lblNewLabel_1);
 		
-		JSlider slider = new JSlider();
+		JSlider slider = new JSlider(1, 20, grosorTrazo);
 		slider.setBounds(10, 149, 164, 26);
+		slider.addChangeListener(new ChangeListener() {
+
+			@Override
+			public void stateChanged(ChangeEvent e) {
+				// TODO Auto-generated method stub
+				grosorTrazo = slider.getValue(); // Actualiza el grosor
+		        drawingPanel.repaint(); // Redibuja con el nuevo grosor
+				
+			}
+			
+		});
 		panel_3_1.add(slider);
 		
 		JButton btnNewButton_4_3_1 = new JButton("Lapiz");
@@ -221,15 +250,117 @@ public class Paint {
 		JButton btnNewButton_5_1 = new JButton("Limpiar");
 		btnNewButton_5_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				points.clear();        
+		        listaDePuntos.clear(); 
+		        drawingPanel.repaint(); 
 			}
 		});
 		btnNewButton_5_1.setFont(new Font("Tahoma", Font.PLAIN, 17));
 		btnNewButton_5_1.setBounds(10, 85, 243, 39);
 		panel_3_1_1.add(btnNewButton_5_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
-		panel_2.setBounds(294, 10, 682, 593);
-		panel.add(panel_2);
+		drawingPanel = new DrawingPanel();
+		drawingPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 2));
+		drawingPanel.setBounds(294, 10, 682, 593);
+		panel.add(drawingPanel);
+		
+		drawingPanel.addMouseListener(this);
+		drawingPanel.addMouseMotionListener(this);
+		
+		
 	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		lastPoint = e.getPoint();
+        points.add(lastPoint);
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		ArrayList<Point> listaCopiada = (ArrayList<Point>) (((ArrayList<Point>) points).clone());
+ 		
+ 		listaDePuntos.add(listaCopiada); 
+ 		points.clear();
+ 		
+ 		System.out.println(listaDePuntos);
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+		Point newPoint = e.getPoint(); 
+		 
+		 points.add(newPoint);  
+	        
+	     drawingPanel.repaint();
+	        
+	     lastPoint = newPoint;
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	class DrawingPanel extends JPanel {
+ 	    public DrawingPanel() {
+ 	        setBackground(Color.WHITE);
+ 	    }
+ 
+ 	    @Override
+ 	    protected void paintComponent(Graphics g) {
+ 	        super.paintComponent(g);
+ 	        Graphics2D g2d = (Graphics2D) g;
+ 	        
+ 	        // Configuración del dibujo
+ 	        g2d.setColor(Color.BLACK);
+ 	        g2d.setStroke(new BasicStroke(grosorTrazo));
+ 	        
+ 	        // Dibujar todos los trazos guardados (listaDePuntos)
+ 	        for (List<Point> trazo : listaDePuntos) {
+ 	            if (trazo.size() > 1) {
+ 	                for (int i = 1; i < trazo.size(); i++) {
+ 	                    Point p1 = trazo.get(i - 1);
+ 	                    Point p2 = trazo.get(i);
+ 	                    g2d.drawLine(p1.x, p1.y, p2.x, p2.y);
+ 	                }
+ 	            }
+ 	        }
+ 	        
+ 	        // Dibujar el trazo actual (points) mientras se arrastra el mouse
+ 	        if (points.size() > 1) {
+ 	            for (int i = 1; i < points.size(); i++) {
+ 	                Point p1 = points.get(i - 1);
+ 	                Point p2 = points.get(i);
+ 	                g2d.drawLine(p1.x, p1.y, p2.x, p2.y);
+ 	            }
+ 	        }
+ 	    }
+ 	}
+	
 }
