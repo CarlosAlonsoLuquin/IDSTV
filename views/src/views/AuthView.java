@@ -23,6 +23,8 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import models.AuthModel;
+
 public class AuthView {
 	
 	
@@ -119,13 +121,16 @@ public class AuthView {
 				}
 
 				if (flag1 && flag2) {
-					if (email.getText().equals("luquin@gmail.com")) {
-						if (myPassword.equals("contra123"))
-							JOptionPane.showMessageDialog(null, "Bienvenido", "hola", JOptionPane.WARNING_MESSAGE);
-						else
-							JOptionPane.showMessageDialog(null, "Fatal error", "hola", JOptionPane.WARNING_MESSAGE);
-					} else
-						JOptionPane.showMessageDialog(null, "Fatal error", "hola", JOptionPane.WARNING_MESSAGE);
+					AuthModel am = new AuthModel();
+					boolean is_login = am.login(email.getText(), myPassword);
+					
+					
+					if (is_login) {
+						JOptionPane.showMessageDialog(null, "Bienvenido al sistema");
+					} else {
+						JOptionPane.showMessageDialog(null, "Error en el acceso", "Hello", JOptionPane.ERROR_MESSAGE);
+
+					}
 				}
 			}
 
