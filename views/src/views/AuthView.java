@@ -366,9 +366,30 @@ public class AuthView {
 
 				
 			}
+			
 
 		});
+		
+		JButton btnNewButton_45 = new JButton("Registrar");
+		btnNewButton_45.setBackground(Color.decode("#789090"));
+		btnNewButton_45.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		btnNewButton_45.setBounds(100, 376, 111, 50);
+		btnNewButton_45.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ventana.dispose();
+				AuthView.this.login();
+
+				
+			}
+			
+
+		});
+		
+	
 		panel_2.add(btnNewButton);
+		panel_2.add(btnNewButton_45);
 		
 		ventana.add(panel);
 		ventana.repaint();
