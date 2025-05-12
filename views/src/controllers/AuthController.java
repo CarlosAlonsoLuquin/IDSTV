@@ -6,7 +6,7 @@ public class AuthController {
 	
 	private AuthView vista;
 	
-public AuthController() { 
+	public AuthController() { 
 		
 		vista = new AuthView();
 	}
@@ -20,6 +20,7 @@ public AuthController() {
 		
 		vista.register();
 	}
+	
 
 
 }
