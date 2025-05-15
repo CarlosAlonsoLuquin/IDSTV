@@ -40,6 +40,7 @@ public class ventana2 {
 	private JTextField txtLopez;
 	private JTextField textField_3;
 	private JTextField textField;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -97,30 +98,30 @@ public class ventana2 {
 		lblNewLabel_2_1_1.setBounds(50, 56, 145, 43);
 		panel_1.add(lblNewLabel_2_1_1);
 
-		JTextField textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(50, 109, 374, 19);
-		panel_1.add(textField_2);
+		JTextField nombre = new JTextField();
+		nombre.setColumns(10);
+		nombre.setBounds(50, 109, 374, 19);
+		panel_1.add(nombre);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Datos Personales");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1_1.setBounds(10, 10, 145, 43);
 		panel_1.add(lblNewLabel_1_1);
 
-		JTextField textField_3 = new JTextField();
-		textField_3.setBounds(50, 343, 374, 19);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
+		JTextField contraseña1 = new JTextField();
+		contraseña1.setBounds(50, 343, 374, 19);
+		panel_1.add(contraseña1);
+		contraseña1.setColumns(10);
 
 		JLabel lblNewLabel_1_2_2 = new JLabel("Confirmar Contraseña");
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_2_2.setBounds(50, 372, 145, 35);
 		panel_1.add(lblNewLabel_1_2_2);
 
-		JTextField textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(50, 417, 374, 19);
-		panel_1.add(textField_5);
+		JTextField contraseña2 = new JTextField();
+		contraseña2.setColumns(10);
+		contraseña2.setBounds(50, 417, 374, 19);
+		panel_1.add(contraseña2);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(449, 0, 478, 495);
@@ -137,21 +138,25 @@ public class ventana2 {
 		chckbxNewCheckBox.setBounds(33, 329, 219, 21);
 		panel_2.add(chckbxNewCheckBox);
 
-		JButton btnNewButton = new JButton("Registrarse");
-		btnNewButton.setBackground(Color.decode("#789090"));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(296, 376, 111, 50);
-		panel_2.add(btnNewButton);
+		JButton registar = new JButton("Registrarse");
+		registar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		registar.setBackground(Color.decode("#789090"));
+		registar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		registar.setBounds(296, 376, 111, 50);
+		panel_2.add(registar);
 
 		JLabel lblNewLabel_3 = new JLabel("Empresa");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(20, 61, 79, 38);
 		panel_2.add(lblNewLabel_3);
 
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(10, 109, 374, 19);
-		panel_2.add(textField);
+		JTextField empresa = new JTextField();
+		empresa.setColumns(10);
+		empresa.setBounds(10, 109, 374, 19);
+		panel_2.add(empresa);
 
 		JLabel lblNewLabel_4 = new JLabel("Ambito de la empresa");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -199,19 +204,21 @@ public class ventana2 {
 		panel_1.add(lblNewLabel_2_2);
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JTextField textField_6 = new JTextField();
-		textField_6.setBounds(50, 269, 374, 19);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
+		JTextField correo = new JTextField();
+		correo.setBounds(50, 269, 374, 19);
+		panel_1.add(correo);
+		correo.setColumns(10);
 
 		JLabel lblNewLabel_2_2_1 = new JLabel("Numero de Telefono");
 		lblNewLabel_2_2_1.setBounds(269, 138, 137, 43);
 		panel_1.add(lblNewLabel_2_2_1);
 		lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JTextField textField_7 = new JTextField();
-		textField_7.setBounds(269, 191, 133, 19);
-		panel_1.add(textField_7);
-		textField_7.setColumns(10);
+		JTextField telefono = new JTextField();
+		telefono.setBounds(269, 191, 133, 19);
+		panel_1.add(telefono);
+		telefono.setColumns(10);
+		
+		
 	}
 }

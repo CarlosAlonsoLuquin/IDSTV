@@ -6,11 +6,11 @@ public class user {
 	
 	public int id;
 	public String name;
-	private String email;
-	private String role;
-	private String phone;
-	private Date create_at;
-	private Date update_at;
+	public String email;
+	public String role;
+	public String phone;
+	public Date create_at;
+	public Date update_at;
 	
 	public user(int id, String name, String email, String role, String phone, Date create, Date update) {
 		// TODO Auto-generated constructor stub

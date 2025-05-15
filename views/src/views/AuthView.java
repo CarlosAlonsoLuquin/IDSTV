@@ -27,22 +27,20 @@ import controllers.HomeController;
 import models.AuthModel;
 
 public class AuthView {
-	
-	
-	public AuthView() { 
+
+	public AuthView() {
 	}
-	
+
 	public void login() {
-		
+
 		JFrame ventana = new JFrame();
-		
-		ventana.setTitle("Login"); 
-	    ventana.setSize(1000, 600);
-	    ventana.setLocationRelativeTo(null);
-	    ventana.setResizable(true); 
-	    ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
-		
-		
+
+		ventana.setTitle("Login");
+		ventana.setSize(1000, 600);
+		ventana.setLocationRelativeTo(null);
+		ventana.setResizable(true);
+		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 		JPanel panel = new JPanel();
 
 		panel.setBackground(Color.decode("#789090"));
@@ -101,50 +99,48 @@ public class AuthView {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+
 				String passText = new String(pass.getPassword());
 				Boolean flag1 = false, flag2 = false;
-				
-				
-				if( passText.equals("") ) {
-					
-					pass.setBorder(BorderFactory.createLineBorder(Color.red,2));
-					
-				}else {
-					
-					pass.setBorder(BorderFactory.createLineBorder(Color.green,2));
+
+				if (passText.equals("")) {
+
+					pass.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+
+				} else {
+
+					pass.setBorder(BorderFactory.createLineBorder(Color.green, 2));
 					flag1 = true;
 				}
-				
-				
-				if(email.getText().equals("")) {
-					email.setBorder(BorderFactory.createLineBorder(Color.red,2));
-				}else {
-					
-					email.setBorder(BorderFactory.createLineBorder(Color.green,2));
+
+				if (email.getText().equals("")) {
+					email.setBorder(BorderFactory.createLineBorder(Color.red, 2));
+				} else {
+
+					email.setBorder(BorderFactory.createLineBorder(Color.green, 2));
 					flag2 = true;
 				}
-				
-				if(flag1 && flag2) {
-					
+
+				if (flag1 && flag2) {
+
 					AuthModel am = new AuthModel();
 					boolean is_login = am.login(email.getText(), passText);
-					
-					if(is_login) {
+
+					if (is_login) {
 						JOptionPane.showMessageDialog(null, "Bienvenido.");
-						
+
 						ventana.dispose();
 						HomeController hc = new HomeController();
-						
+
 						hc.home();
-						
-					}else {
-						JOptionPane.showMessageDialog(null, "Error al acceder","verifique su información",JOptionPane.WARNING_MESSAGE);
+
+					} else {
+						JOptionPane.showMessageDialog(null, "Error al acceder", "verifique su información",
+								JOptionPane.WARNING_MESSAGE);
 					}
-					
-					
+
 				}
-				
+
 			}
 		});
 		JButton ir_registro = new JButton("ir al registro");
@@ -161,7 +157,6 @@ public class AuthView {
 				ventana.dispose();
 				AuthView.this.register();
 
-				
 			}
 
 		});
@@ -181,35 +176,14 @@ public class AuthView {
 		boton.setBackground(Color.decode("#789090"));
 		panel.add(boton);
 
-//		ImageIcon imagen = new ImageIcon("imagenes/usuario.png");
-//		JLabel icon_user = new JLabel();
-//		icon_user.setBounds(90, 103, 30, 30);
-//		icon_user.setIcon(new ImageIcon(
-//				imagen.getImage().getScaledInstance(icon_user.getWidth(), icon_user.getHeight(), Image.SCALE_DEFAULT)));
-//		panel.add(icon_user);
-
-//		ImageIcon imagen2 = new ImageIcon("imagenes/password.png");
-//		JLabel icon_pass = new JLabel();
-//		icon_pass.setBounds(90, 165, 30, 30);
-//		icon_pass.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(icon_pass.getWidth(),
-//				icon_pass.getHeight(), Image.SCALE_DEFAULT)));
-//		panel.add(icon_pass);
-
-//		ImageIcon imagen3 = new ImageIcon("imagenes/logo.png");
-//		JLabel logo = new JLabel();
-//		logo.setBounds(400, 0, 500, 500);
-//		logo.setIcon(new ImageIcon(
-//				imagen3.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_SMOOTH)));
-//		panel.add(logo);
-		
 		ventana.add(panel);
 		ventana.repaint();
 		ventana.revalidate();
 		ventana.setVisible(true);
-		
-		
+
 	}
-	public void register()  {
+
+	public void register() {
 		JFrame frame = new JFrame();
 		frame.setBounds(100, 100, 1000, 600);
 		frame.setLocationRelativeTo(null);
@@ -240,30 +214,30 @@ public class AuthView {
 		lblNewLabel_2_1_1.setBounds(50, 56, 145, 43);
 		panel_1.add(lblNewLabel_2_1_1);
 
-		JTextField textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(50, 109, 374, 19);
-		panel_1.add(textField_2);
+		JTextField nombre_field = new JTextField();
+		nombre_field.setColumns(10);
+		nombre_field.setBounds(50, 109, 374, 19);
+		panel_1.add(nombre_field);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Datos Personales");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1_1.setBounds(10, 10, 145, 43);
 		panel_1.add(lblNewLabel_1_1);
 
-		JTextField textField_3 = new JTextField();
-		textField_3.setBounds(50, 343, 374, 19);
-		panel_1.add(textField_3);
-		textField_3.setColumns(10);
+		JPasswordField contraseña1 = new JPasswordField();
+		contraseña1.setBounds(50, 343, 374, 19);
+		panel_1.add(contraseña1);
+		contraseña1.setColumns(10);
 
 		JLabel lblNewLabel_1_2_2 = new JLabel("Confirmar Contraseña");
 		lblNewLabel_1_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_1_2_2.setBounds(50, 372, 145, 35);
 		panel_1.add(lblNewLabel_1_2_2);
 
-		JTextField textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(50, 417, 374, 19);
-		panel_1.add(textField_5);
+		JPasswordField contraseña2 = new JPasswordField();
+		contraseña2.setColumns(10);
+		contraseña2.setBounds(50, 417, 374, 19);
+		panel_1.add(contraseña2);
 
 		JPanel panel_2 = new JPanel();
 		panel_2.setBounds(449, 0, 478, 495);
@@ -280,21 +254,16 @@ public class AuthView {
 		chckbxNewCheckBox.setBounds(33, 329, 219, 21);
 		panel_2.add(chckbxNewCheckBox);
 
-		JButton btnNewButton = new JButton("Registrarse");
-		btnNewButton.setBackground(Color.decode("#789090"));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnNewButton.setBounds(296, 376, 111, 50);
-		panel_2.add(btnNewButton);
 
 		JLabel lblNewLabel_3 = new JLabel("Empresa");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(20, 61, 79, 38);
 		panel_2.add(lblNewLabel_3);
 
-		JTextField textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(10, 109, 374, 19);
-		panel_2.add(textField);
+		JTextField empresa_field = new JTextField();
+		empresa_field.setColumns(10);
+		empresa_field.setBounds(10, 109, 374, 19);
+		panel_2.add(empresa_field);
 
 		JLabel lblNewLabel_4 = new JLabel("Ambito de la empresa");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -309,6 +278,8 @@ public class AuthView {
 		JButton btnLogin = new JButton("Login ");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				AuthView.this.login();
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -342,20 +313,73 @@ public class AuthView {
 		panel_1.add(lblNewLabel_2_2);
 		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JTextField textField_6 = new JTextField();
-		textField_6.setBounds(50, 269, 374, 19);
-		panel_1.add(textField_6);
-		textField_6.setColumns(10);
+		JTextField emailField = new JTextField();
+		emailField.setBounds(50, 269, 374, 19);
+		panel_1.add(emailField);
+		emailField.setColumns(10);
 
 		JLabel lblNewLabel_2_2_1 = new JLabel("Numero de Telefono");
 		lblNewLabel_2_2_1.setBounds(269, 138, 137, 43);
 		panel_1.add(lblNewLabel_2_2_1);
 		lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
-		JTextField textField_7 = new JTextField();
-		textField_7.setBounds(269, 191, 133, 19);
-		panel_1.add(textField_7);
-		textField_7.setColumns(10);
+		JTextField telefono = new JTextField();
+		telefono.setBounds(269, 191, 133, 19);
+		panel_1.add(telefono);
+		telefono.setColumns(10);
+		
+		JButton registar = new JButton("Registrarse");
+		registar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+		        String nombre = nombre_field.getText();
+		        String email = emailField.getText();
+		        String password = new String(contraseña1.getPassword());
+		        String confirmPassword = new String(contraseña2.getPassword());  
+		        String empresa = empresa_field.getText();
+		       
+
+		        if (nombre.isEmpty() || email.isEmpty() ||
+		            password.isEmpty() || empresa.isEmpty()) {
+		            JOptionPane.showMessageDialog(frame, 
+		                "Todos los campos son obligatorios.", 
+		                "Error", 
+		                JOptionPane.ERROR_MESSAGE);
+		            return;
+		        }
+
+		        if (!password.equals(confirmPassword)) {
+		            JOptionPane.showMessageDialog(frame, 
+		                "Las contraseñas no coinciden.", 
+		                "Error", 
+		                JOptionPane.ERROR_MESSAGE);
+		            return;
+		        }
+
+		    
+
+		        AuthModel modelo = new AuthModel();
+		        boolean registroExitoso = modelo.registrarUsuario(nombre, email, password, empresa);
+
+		        if (registroExitoso) {
+		            JOptionPane.showMessageDialog(frame, 
+		                "¡Registro exitoso!", 
+		                "Éxito", 
+		                JOptionPane.INFORMATION_MESSAGE);
+		            frame.dispose(); 
+		            login(); 
+		        } else {
+		            JOptionPane.showMessageDialog(frame, 
+		                "Error al guardar los datos.", 
+		                "Error", 
+		                JOptionPane.ERROR_MESSAGE);
+		        }
+		    }
+		});
+		registar.setBackground(Color.decode("#789090"));
+		registar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		registar.setBounds(296, 376, 111, 50);
+		panel_2.add(registar);
+		
 		
 		frame.add(panel);
 		frame.repaint();
