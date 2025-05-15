@@ -29,6 +29,8 @@ import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.JTable;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ventana2 {
 
@@ -140,27 +142,32 @@ public class ventana2 {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnNewButton.setBounds(296, 376, 111, 50);
 		panel_2.add(btnNewButton);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Empresa");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(20, 61, 79, 38);
 		panel_2.add(lblNewLabel_3);
-		
+
 		textField = new JTextField();
 		textField.setColumns(10);
 		textField.setBounds(10, 109, 374, 19);
 		panel_2.add(textField);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("Ambito de la empresa");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_4.setBounds(20, 158, 140, 38);
 		panel_2.add(lblNewLabel_4);
-		
-		JComboBox ambito_empresa =  new JComboBox(new Object[]{"Tecnología", "Salud", "Educación", "Comercio", "Otro"});
+
+		JComboBox ambito_empresa = new JComboBox(
+				new Object[] { "Tecnología", "Salud", "Educación", "Comercio", "Otro" });
 		ambito_empresa.setBounds(20, 211, 140, 30);
 		panel_2.add(ambito_empresa);
-		
+
 		JButton btnLogin = new JButton("Login ");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogin.setBackground(new Color(120, 144, 144));
 		btnLogin.setBounds(124, 376, 111, 50);
@@ -171,38 +178,40 @@ public class ventana2 {
 		lblNewLabel_2.setBounds(50, 138, 145, 43);
 		panel_1.add(lblNewLabel_2);
 
-		JComboBox dia = new JComboBox(new Object[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10",
-				"11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27",
-				"28", "29", "30", "31" });
+		JComboBox dia = new JComboBox(new Object[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11",
+				"12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28",
+				"29", "30", "31" });
 		dia.setBounds(50, 191, 48, 19);
 		panel_1.add(dia);
-		
-		JComboBox mes =  new JComboBox(new Object[]{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"});
+
+		JComboBox mes = new JComboBox(
+				new Object[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" });
 		mes.setBounds(108, 191, 47, 21);
 		panel_1.add(mes);
-		
-		JComboBox año =  new JComboBox(new Object[]{"2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997"});
+
+		JComboBox año = new JComboBox(
+				new Object[] { "2005", "2004", "2003", "2002", "2001", "2000", "1999", "1998", "1997" });
 		año.setBounds(165, 191, 60, 21);
 		panel_1.add(año);
-		
-				JLabel lblNewLabel_2_2 = new JLabel("Correo Electronico");
-				lblNewLabel_2_2.setBounds(50, 220, 137, 43);
-				panel_1.add(lblNewLabel_2_2);
-				lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-				
-						JTextField textField_6 = new JTextField();
-						textField_6.setBounds(50, 269, 374, 19);
-						panel_1.add(textField_6);
-						textField_6.setColumns(10);
-						
-								JLabel lblNewLabel_2_2_1 = new JLabel("Numero de Telefono");
-								lblNewLabel_2_2_1.setBounds(269, 138, 137, 43);
-								panel_1.add(lblNewLabel_2_2_1);
-								lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-								
-										JTextField textField_7 = new JTextField();
-										textField_7.setBounds(269, 191, 133, 19);
-										panel_1.add(textField_7);
-										textField_7.setColumns(10);
+
+		JLabel lblNewLabel_2_2 = new JLabel("Correo Electronico");
+		lblNewLabel_2_2.setBounds(50, 220, 137, 43);
+		panel_1.add(lblNewLabel_2_2);
+		lblNewLabel_2_2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+		JTextField textField_6 = new JTextField();
+		textField_6.setBounds(50, 269, 374, 19);
+		panel_1.add(textField_6);
+		textField_6.setColumns(10);
+
+		JLabel lblNewLabel_2_2_1 = new JLabel("Numero de Telefono");
+		lblNewLabel_2_2_1.setBounds(269, 138, 137, 43);
+		panel_1.add(lblNewLabel_2_2_1);
+		lblNewLabel_2_2_1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+
+		JTextField textField_7 = new JTextField();
+		textField_7.setBounds(269, 191, 133, 19);
+		panel_1.add(textField_7);
+		textField_7.setColumns(10);
 	}
 }
