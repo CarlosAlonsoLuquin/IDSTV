@@ -23,6 +23,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controllers.HomeController;
 import models.AuthModel;
 
 public class AuthView {
@@ -100,40 +101,51 @@ public class AuthView {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				
+				String passText = new String(pass.getPassword());
 				Boolean flag1 = false, flag2 = false;
-
-				if (email.getText().equals("")) {
-					email.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-
-				} else {
-					email.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				
+				
+				if( passText.equals("") ) {
+					
+					pass.setBorder(BorderFactory.createLineBorder(Color.red,2));
+					
+				}else {
+					
+					pass.setBorder(BorderFactory.createLineBorder(Color.green,2));
 					flag1 = true;
 				}
-
-				String myPassword = new String(pass.getPassword());
-				if (myPassword.equals("")) {
-					pass.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-
-				} else {
-					pass.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+				
+				
+				if(email.getText().equals("")) {
+					email.setBorder(BorderFactory.createLineBorder(Color.red,2));
+				}else {
+					
+					email.setBorder(BorderFactory.createLineBorder(Color.green,2));
 					flag2 = true;
 				}
-
-				if (flag1 && flag2) {
+				
+				if(flag1 && flag2) {
+					
 					AuthModel am = new AuthModel();
-					boolean is_login = am.login(email.getText(), myPassword);
+					boolean is_login = am.login(email.getText(), passText);
 					
-					
-					if (is_login) {
-						JOptionPane.showMessageDialog(null, "Bienvenido al sistema");
-					} else {
-						JOptionPane.showMessageDialog(null, "Error en el acceso", "Hello", JOptionPane.ERROR_MESSAGE);
-
+					if(is_login) {
+						JOptionPane.showMessageDialog(null, "Bienvenido.");
+						
+						ventana.dispose();
+						HomeController hc = new HomeController();
+						
+						hc.home();
+						
+					}else {
+						JOptionPane.showMessageDialog(null, "Error al acceder","verifique su información",JOptionPane.WARNING_MESSAGE);
 					}
+					
+					
 				}
+				
 			}
-
 		});
 		JButton ir_registro = new JButton("ir al registro");
 		ir_registro.setSize(130, 50);

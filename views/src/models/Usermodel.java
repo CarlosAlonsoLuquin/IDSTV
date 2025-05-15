@@ -25,7 +25,7 @@ public class Usermodel {
 		try
 		{
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/", "root", "root");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			while (rs.next()) { 
