@@ -1,0 +1,3 @@
+Jose Reyes Inojosa Torres,apocosi@gmail.com,12345,simon
+carlos,apocosi@gmail.com,1234,dasc
+carlos alonso,apocosi@gmail.com,12345,dasc
