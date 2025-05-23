@@ -23,7 +23,4 @@ public class user {
 		this.update_at = update;
 	}
 	
-
-
-
 }

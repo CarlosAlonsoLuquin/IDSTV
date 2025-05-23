@@ -10,109 +10,72 @@ import java.util.List;
 
 public class Usermodel {
 
-	private List<user> usuarios = new ArrayList<>();
+    private List<user> usuarios = new ArrayList<>();
+    // Datos de conexión centralizados
+    private static final String DB_URL = "jdbc:mysql://sql.freedb.tech:3306/freedb_ProyectoGYM?useSSL=true";
+    private static final String DB_USER = "freedb_CarlosLuquin";
+    private static final String DB_PASSWORD = "sXYz68y3@ts6$@E";
 
-	public void UsersModel() {
-		// TODO Auto-generated constructor stub
-	}
+    public void UsersModel() {
+      
+    }
 
-	public List getall() {
+    public List<user> getall() {
+        String query = "select * from usuario";
+        
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(query)) {
+            
+            while (rs.next()) {
+                Integer id = rs.getInt(1);
+                String name = rs.getString(2);
+                String email = rs.getString(3);
+                String role = rs.getString(4);
+                String phone = rs.getString(5);
+                Date create_at = rs.getDate(6);
 
-		String query = "select * from users";
-		Connection conn = null;
-		Statement stmt = null;
+                System.out.println("empId:" + id);
+                System.out.println("firstName:" + name);
+                System.out.println("");
 
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
-			stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery(query);
-			while (rs.next()) {
+                usuarios.add(new user(id, name, email, role, phone, create_at, null));
+            }
+            return usuarios;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return usuarios;
+    }
 
-				Integer id = rs.getInt(1);
-				String name = rs.getString(2);
-				String email = rs.getString(3);
-				String role = rs.getString(4);
-				String phone = rs.getString(5);
-				Date create_at = rs.getDate(6);
+    public boolean remove(int id) {
+        String query = "DELETE FROM users WHERE `usuario`.`id` = " + id;
+        
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             Statement stmt = conn.createStatement()) {
+            
+            int rowsAffected = stmt.executeUpdate(query);
+            return rowsAffected > 0;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
-				System.out.println("empId:" + id);
-				System.out.println("firstName:" + name);
+    public boolean insert(String name, String email, String role, String phone) {
+        String query = "INSERT INTO users (name, email, role, phone, create_at) " + 
+                      "VALUES ('" + name + "', '" + email + "', '" + role + "', '" + phone + "', NOW())";
 
-				System.out.println("");
-
-				usuarios.add(new user(id, name, email, role, phone,create_at , null));
-			}
-
-			rs.close();
-			return usuarios;
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				stmt.close();
-				conn.close();
-			} catch (Exception e) {
-
-			}
-		}
-		return usuarios;
-
-	}
-
-	public boolean remove(int id) {
-
-		String query = "DELETE FROM users WHERE `users`.`id` = " + id;
-		Connection conn = null;
-		Statement stmt = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
-			stmt = conn.createStatement();
-
-			stmt.executeUpdate(query);
-
-			return true;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				stmt.close();
-				conn.close();
-			} catch (Exception e) {
-			}
-		}
-
-		return false;
-
-	}
-	public boolean insert(String name, String email, String role, String phone) {
-		String query = "INSERT INTO users (name, email, role, phone, create_at) " + "VALUES ('" + name + "', '" + email
-				+ "', '" + role + "', '" + phone + "', NOW())";
-
-		Connection conn = null;
-		Statement stmt = null;
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "root", "root");
-			stmt = conn.createStatement();
-
-			int rowsAffected = stmt.executeUpdate(query);
-
-			return rowsAffected > 0;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			return false;
-		} finally {
-			try {
-				if (stmt != null)
-					stmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (Exception e) {
-			}
-		}
-	}
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             Statement stmt = conn.createStatement()) {
+            
+            int rowsAffected = stmt.executeUpdate(query);
+            return rowsAffected > 0;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

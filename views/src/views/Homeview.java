@@ -65,7 +65,6 @@ public class Homeview {
 			}});
 		panel.add(btnNewButton2);
 		
-		 
 		
 		ventana.add(panel);
 		ventana.repaint();

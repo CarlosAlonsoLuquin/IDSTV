@@ -77,23 +77,59 @@ public class UsersView {
 		    panel.add(btnAgregar);
 
 		int y = 400;
-	    for (Object obj : usuarios) {
+	    /*for (Object obj : usuarios) {
 	        user usuario = (user) obj;
-	        JButton delete = new JButton("Eliminar " + usuario.id);
+	        JButton delete = new JButton("Eliminar ");
 	        delete.setBounds(50, y, 200, 30);
 	        delete.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent e) {
-	            	Usermodel um = new Usermodel();
-	                um.remove(usuario.id);
-	                ventana.dispose();
-	                UsersController us = new UsersController();
-	                us.index();
+//	            	Usermodel um = new Usermodel();
+//	                um.remove(usuario.id);
+//	                ventana.dispose();
+//	                UsersController us = new UsersController();
+//	                us.index();
+	            	
+	            	int seleccionFila = tabla.getSelectedRow();
+	            	
+	            	if (seleccionFila != -1) {
+	            		int id = (int) tabla.getValueAt(seleccionFila, 0);
+	            		Usermodel um = new Usermodel();
+		                um.remove(id);
+		                ventana.dispose();
+		                UsersController us = new UsersController();
+		                us.index();
+	            	}
 	            }
 	        });
 	        panel.add(delete);
 	        y += 40;
-	    }
+	    }*/
+		
+		JButton btnEliminar = new JButton("Eliminar");
+		btnEliminar.setBounds(50, 400, 200, 30);
+		btnEliminar.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        int seleccionFila = tabla.getSelectedRow();
+		        
+		        if (seleccionFila == -1) {
+		            JOptionPane.showMessageDialog(ventana, 
+		                "Debes seleccionar un usuario de la tabla primero", 
+		                "Advertencia", 
+		                JOptionPane.WARNING_MESSAGE);
+		            return;
+		        }
+		        
+		        int id = (int) tabla.getValueAt(seleccionFila, 0);
+		        Usermodel um = new Usermodel();
+		        um.remove(id);
+		        ventana.dispose();
+		        UsersController us = new UsersController();
+		        us.index();
+		    }
+		});
+		panel.add(btnEliminar);
 
 
 		ventana.add(panel);

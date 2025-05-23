@@ -1,3 +1,6 @@
 Jose Reyes Inojosa Torres,apocosi@gmail.com,12345,simon
 carlos,apocosi@gmail.com,1234,dasc
-carlos alonso,apocosi@gmail.com,12345,dasc
+carlos alonso,apocosi@gmail.com,12345,dascpedrito camelo,pedrito@gmail.com,12345,dasc
+sexodia,osoelviolador@gmail.com,carlos11,TaqueriaElInge
+juan,sexodi@gmail.com,kakino,waza
+carlos hernandez,pajin@gmail.com,kakino,dasc

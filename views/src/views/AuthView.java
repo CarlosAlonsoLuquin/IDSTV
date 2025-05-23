@@ -131,7 +131,6 @@ public class AuthView {
 
 						ventana.dispose();
 						HomeController hc = new HomeController();
-
 						hc.home();
 
 					} else {
@@ -254,7 +253,6 @@ public class AuthView {
 		chckbxNewCheckBox.setBounds(33, 329, 219, 21);
 		panel_2.add(chckbxNewCheckBox);
 
-
 		JLabel lblNewLabel_3 = new JLabel("Empresa");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(20, 61, 79, 38);
@@ -327,60 +325,47 @@ public class AuthView {
 		telefono.setBounds(269, 191, 133, 19);
 		panel_1.add(telefono);
 		telefono.setColumns(10);
-		
+
 		JButton registar = new JButton("Registrarse");
 		registar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		        String nombre = nombre_field.getText();
-		        String email = emailField.getText();
-		        String password = new String(contraseña1.getPassword());
-		        String confirmPassword = new String(contraseña2.getPassword());  
-		        String empresa = empresa_field.getText();
-		       
+				String nombre = nombre_field.getText();
+				String email = emailField.getText();
+				String password = new String(contraseña1.getPassword());
+				String confirmPassword = new String(contraseña2.getPassword());
+				String empresa = empresa_field.getText();
 
-		        if (nombre.isEmpty() || email.isEmpty() ||
-		            password.isEmpty() || empresa.isEmpty()) {
-		            JOptionPane.showMessageDialog(frame, 
-		                "Todos los campos son obligatorios.", 
-		                "Error", 
-		                JOptionPane.ERROR_MESSAGE);
-		            return;
-		        }
+				if (nombre.isEmpty() || email.isEmpty() || password.isEmpty() || empresa.isEmpty()) {
+					JOptionPane.showMessageDialog(frame, "Todos los campos son obligatorios.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 
-		        if (!password.equals(confirmPassword)) {
-		            JOptionPane.showMessageDialog(frame, 
-		                "Las contraseñas no coinciden.", 
-		                "Error", 
-		                JOptionPane.ERROR_MESSAGE);
-		            return;
-		        }
+				if (!password.equals(confirmPassword)) {
+					JOptionPane.showMessageDialog(frame, "Las contraseñas no coinciden.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 
-		    
+				AuthModel modelo = new AuthModel();
+				boolean registroExitoso = modelo.registrarUsuario(email, password);
 
-		        AuthModel modelo = new AuthModel();
-		        boolean registroExitoso = modelo.registrarUsuario(nombre, email, password, empresa);
-
-		        if (registroExitoso) {
-		            JOptionPane.showMessageDialog(frame, 
-		                "¡Registro exitoso!", 
-		                "Éxito", 
-		                JOptionPane.INFORMATION_MESSAGE);
-		            frame.dispose(); 
-		            login(); 
-		        } else {
-		            JOptionPane.showMessageDialog(frame, 
-		                "Error al guardar los datos.", 
-		                "Error", 
-		                JOptionPane.ERROR_MESSAGE);
-		        }
-		    }
+				if (registroExitoso) {
+					JOptionPane.showMessageDialog(frame, "¡Registro exitoso!", "Éxito",
+							JOptionPane.INFORMATION_MESSAGE);
+					frame.dispose();
+					login();
+				} else {
+					JOptionPane.showMessageDialog(frame, "Error al guardar los datos.", "Error",
+							JOptionPane.ERROR_MESSAGE);
+				}
+			}
 		});
 		registar.setBackground(Color.decode("#789090"));
 		registar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		registar.setBounds(296, 376, 111, 50);
 		panel_2.add(registar);
-		
-		
+
 		frame.add(panel);
 		frame.repaint();
 		frame.revalidate();
